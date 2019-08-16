@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
@@ -29,5 +30,10 @@ public class SeleniumTest {
                 return !d.getTitle().toLowerCase().contains("yahoo");
             }
         });
+    }
+
+    @AfterAll
+    private static void AfterAll() throws Exception {
+        DriverProvider.getWebDriver().close();
     }
 }
