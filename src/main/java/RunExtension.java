@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 public class RunExtension extends io.cloudbeat.junit.JUnitRunner implements BeforeAllCallback, ExtensionContext.Store.CloseableResource {
     @Override
     public void beforeAll(ExtensionContext context) throws Exception {
+        DriverProvider.reload();
         setWebDriver(DriverProvider.getWebDriver());
     }
 

@@ -9,14 +9,14 @@ public class DriverProvider {
 
     public static WebDriver getWebDriver() throws Exception {
         if(driver == null) {
-            driver = CreateWebDriver();
+            reload();
         }
 
         return driver;
     }
 
-    private static WebDriver CreateWebDriver() throws Exception {
-        String browserName = System.getProperty("browserName");
+    private static WebDriver createWebDriver() throws Exception {
+        String browserName = "chrome";
         if ("chrome".equalsIgnoreCase(browserName)){
             ChromeOptions options = new ChromeOptions();
             options.setExperimentalOption("useAutomationExtension", false);
@@ -26,5 +26,9 @@ public class DriverProvider {
         } else {
             throw new Exception("Invalid browserName: " + browserName);
         }
+    }
+
+    public static void reload() throws Exception {
+        driver = createWebDriver();
     }
 }
