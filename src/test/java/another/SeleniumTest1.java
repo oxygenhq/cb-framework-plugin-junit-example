@@ -1,3 +1,5 @@
+package another;
+
 import helpers.DriverProvider;
 import helpers.RunExtension;
 import org.junit.jupiter.api.AfterAll;
@@ -8,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @ExtendWith({RunExtension.class})
-public class SeleniumTest {
+public class SeleniumTest1 {
     @Test
     public void checkTitle1() throws Exception {
         DriverProvider.getWebDriver().get("https:\\www.google.com");

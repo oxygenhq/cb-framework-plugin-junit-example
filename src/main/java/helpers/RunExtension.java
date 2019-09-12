@@ -1,6 +1,7 @@
+package helpers;
+
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 
 public class RunExtension extends io.cloudbeat.junit.JUnitRunner implements BeforeAllCallback, ExtensionContext.Store.CloseableResource {
     @Override
