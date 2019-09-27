@@ -18,7 +18,7 @@ public class DriverProvider {
     }
 
     private static WebDriver createWebDriver() throws Exception {
-        String browserName = "chrome";
+        String browserName = System.getProperty("browserName");
         if ("chrome".equalsIgnoreCase(browserName)){
             ChromeOptions options = new ChromeOptions();
             options.setExperimentalOption("useAutomationExtension", false);
