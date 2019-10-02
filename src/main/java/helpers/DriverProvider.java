@@ -20,9 +20,9 @@ public class DriverProvider {
     private static WebDriver createWebDriver() throws Exception {
         String browserName = System.getProperty("browserName");
         if ("chrome".equalsIgnoreCase(browserName)){
-            ChromeOptions options = new ChromeOptions();
-            options.setExperimentalOption("useAutomationExtension", false);
-            return new ChromeDriver(options);
+            String path = System.getProperty("user.dir");
+            System.setProperty("webdriver.chrome.driver", path + "\\resources\\chromedriver.exe");
+            return new ChromeDriver();
         } else if ("ie".equalsIgnoreCase(browserName)) {
             return new InternetExplorerDriver();
         } else {
