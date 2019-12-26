@@ -1,43 +1,35 @@
 package Selenium;
 
-import helpers.DriverProvider;
-import helpers.RunExtension;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import io.cloudbeat.junit.CbExtension;
+import io.cloudbeat.junit.CbJunit;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-@ExtendWith({RunExtension.class})
-public class SeleniumTest {
+@ExtendWith({CbExtension.class})
+public class SeleniumTest extends CbJunit {
+
+    public SeleniumTest() throws Exception {
+        System.out.println("Construct");
+        WebDriver driver = createWebDriverBasedOnCbCapabilities();
+        setWebDriver(driver);
+    }
+
     @Test
     @Tag("success")
-    public void successSeleniumTest() throws Exception {
-        DriverProvider.getWebDriver().get("https:\\www.google.com");
-
-        new WebDriverWait(DriverProvider.getWebDriver(),10L).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().contains("google");
-            }
-        });
+    public void successSeleniumTest(TestInfo testInfo) throws Exception {
+        driver.get("https:\\www.google.com");
+        startStep("123");
+        Assertions.assertTrue(driver.getTitle().toLowerCase().contains("google"));
+        endStep("123");
     }
 
     @Test
     @Tag("fail")
     public void failSeleniumTest() throws Exception {
-        DriverProvider.getWebDriver().get("https:\\www.google.com");
-
-        new WebDriverWait(DriverProvider.getWebDriver(),10L).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().contains("yahoo");
-            }
-        });
-    }
-
-    @AfterAll
-    private static void AfterAll() throws Exception {
-        DriverProvider.getWebDriver().close();
+        driver.get("https:\\www.google.com");
+        Assertions.assertTrue(!driver.getTitle().toLowerCase().contains("google"));
     }
 }
