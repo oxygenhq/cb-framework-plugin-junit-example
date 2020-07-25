@@ -11,7 +11,7 @@
     <dependencies>
         <dependency>
             <groupId>io.cloudbeat.junit</groupId>
-            <artifactId>cb-plugin-junit</artifactId>
+            <artifactId>cb-framework-plugin-junit</artifactId>
             <version>0.1.0</version>
         </dependency>
         <dependency>
