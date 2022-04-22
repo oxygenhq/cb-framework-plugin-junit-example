@@ -9,13 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.google.common.base.Function;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-//import static io.restassured.RestAssured.given;
-//import static org.hamcrest.Matchers.hasProperty;
 
 @ExtendWith({CbJunitExtension.class})
 public class SeleniumTest {
@@ -46,7 +42,7 @@ public class SeleniumTest {
     @Test
     @Tag("success")
     public void successSeleniumTest() throws Exception {
-        driver.get("https:\\www.google.com");
+        driver.get("https://www.google.com");
         CbJunitExtension.startStep("123");
         Assertions.assertTrue(driver.getTitle().toLowerCase().contains("google"));
         CbJunitExtension.endLastStep();
@@ -56,28 +52,14 @@ public class SeleniumTest {
     @Tag("fail")
     public void failSeleniumTest() throws Exception {
         CbJunitExtension.step("Open Google homepage", () -> {
-            driver.get("https:\\www.google.com");
+            driver.get("https://www.google.com");
             CbJunitExtension.step("Assert page title", () -> {
                 Assertions.assertTrue(!driver.getTitle().toLowerCase().contains("google"));
             });
         });
 
     }
-/*
-    @Test
-    @Tag("API")
-    @Tag("Sanity")
-    public void weatherApiTest() {
-        given()
-                .when()
-                .get("https://api.weather.gov/points/39.7456,-97.0892")
-                .then()
-                .statusCode(200)
-                .and()
-                .body("geometry", hasProperty("type"));
-        //body("MRData.CircuitTable.Circuits.circuitId",hasSize(20));
-    }
-*/
+
     @Test
     @Tag("success")
     @Tag("purchase")
