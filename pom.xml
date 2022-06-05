@@ -17,7 +17,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.oxygenhq</groupId>
+            <groupId>io.cloudbeat.framework</groupId>
             <artifactId>cb-framework-plugin-junit</artifactId>
             <version>0.6.4</version>
             <scope>test</scope>
@@ -35,8 +35,8 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
-            <version>1.5.1</version>
-            <scope>test</scope>
+            <version>1.8.2</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -47,12 +47,12 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.5.1</version>
+            <version>5.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.5.1</version>
+            <version>5.8.2</version>
         </dependency>
     </dependencies>
 
