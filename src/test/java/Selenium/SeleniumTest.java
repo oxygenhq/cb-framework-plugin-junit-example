@@ -26,7 +26,7 @@ public class SeleniumTest {
     @BeforeEach
     public void setup() throws Exception {
         driver = CbJunitExtension.createWebDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
     }
 
     @AfterEach
