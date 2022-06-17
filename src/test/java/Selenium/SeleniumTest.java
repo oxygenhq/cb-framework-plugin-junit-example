@@ -25,9 +25,7 @@ public class SeleniumTest {
 
     @BeforeEach
     public void setup() throws Exception {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName("chrome");
-        driver = CbJunitExtension.createWebDriver(capabilities);
+        driver = CbJunitExtension.createWebDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
