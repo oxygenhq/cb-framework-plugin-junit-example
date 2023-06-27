@@ -62,11 +62,11 @@ public class SeleniumTest {
     @Tag("success")
     @Tag("purchase")
     public void purchaseDress() {
-        CbJunitExtension.startStep("Open the web site");
+        CbJunitExtension.startStep("דף הבית");
         driver.navigate().to(homeUrl);
         CbJunitExtension.endLastStep();
 
-        CbJunitExtension.startStep("Select Dresses");
+        CbJunitExtension.startStep("בחירת מוצר");
         driver.findElement(By.linkText("DRESSES")).click();
         CbJunitExtension.endLastStep();
 
